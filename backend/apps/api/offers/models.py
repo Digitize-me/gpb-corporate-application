@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from reference.models import Tag, Category
 
 
 # Категория проекта/мероприятия (Продукты и услуги, Развитие технологий, Обслуживание в офисах продаж) выбор из таблицы одного
@@ -10,38 +11,6 @@ from django.utils.translation import gettext_lazy as _
 # Более подробная инфа о проекте/мероприятии (5-10 предложений, отображаются по свайпу вниз) подробная информация
 # Примерная стоимость проекта/мероприятия затраты или нет затрат
 # Добавить фотку проекта/мероприятия
-
-
-class Tag(models.Model):
-    """
-    Модель тегов
-    """
-
-    name = models.CharField(max_length=50, verbose_name=_("Название тега"))
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = _("Тег")
-        verbose_name_plural = _("Теги")
-
-
-class Category(models.Model):
-    """
-    Модель категорий
-    """
-
-    name = models.CharField(
-        max_length=50, verbose_name=_("Название категории")
-    )
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = _("Категория предложения")
-        verbose_name_plural = _("Категории предложений")
 
 
 class Offer(models.Model):
