@@ -14,6 +14,19 @@ class ProxyGroup(Group):
         verbose_name_plural = _("groups")
 
 
+class Rewards(models.Model):
+    """Награды"""
+
+    name = models.CharField(max_length=255, verbose_name=("Название"))
+
+    class Meta:
+        verbose_name = "Награда"
+        verbose_name_plural = "Награды"
+
+    def __str__(self):
+        return self.name
+
+
 class User(AbstractBaseUser, PermissionsMixin):
     username_validator = UnicodeUsernameValidator()
 
@@ -49,6 +62,14 @@ class User(AbstractBaseUser, PermissionsMixin):
         ),
     )
     date_joined = models.DateTimeField(_("date joined"), default=timezone.now)
+    image = models.ImageField(
+        null=True, blank=True, verbose_name=("Изображение")
+    )
+    coins = models.IntegerField(verbose_name=("Монеты"), default=0)
+    levels = models.IntegerField(verbose_name=("Уровень"), default=1)
+    rewards = models.ManyToManyField(
+        Rewards, null=True, blank=True, verbose_name=("Награды")
+    )
 
     objects = UserManager()
 
