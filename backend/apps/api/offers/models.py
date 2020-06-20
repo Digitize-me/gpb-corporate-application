@@ -38,7 +38,9 @@ class Offer(models.Model):
         blank=True,
         null=True,
     )
-    tags = models.ManyToManyField(Tag, verbose_name=_("Теги"),)
+    tags = models.ManyToManyField(
+        Tag, null=True, blank=True, verbose_name=_("Теги")
+    )
     idea_short = models.CharField(
         max_length=255, verbose_name=_("Краткое описание (идея проекта)")
     )

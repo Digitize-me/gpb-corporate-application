@@ -37,7 +37,9 @@ class Event(models.Model):
         blank=True,
         null=True,
     )
-    tags = models.ManyToManyField(Tag, verbose_name=_("Теги"),)
+    tags = models.ManyToManyField(
+        Tag, null=True, blank=True, verbose_name=_("Теги")
+    )
     img = models.ImageField(
         blank=True, null=True, verbose_name=_("Изображение")
     )
