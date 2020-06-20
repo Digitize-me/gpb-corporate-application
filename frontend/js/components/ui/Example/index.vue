@@ -90,8 +90,8 @@
     100%
       transform: rotate(360deg)
   .ic
-    vertical-align: bottom;
-    font-size: 1.5rem;
+    vertical-align: bottom
+    font-size: 1.5rem
   .batman
     &__links
       max-width: 750px
@@ -122,6 +122,6 @@
         position: absolute
         bottom: 0.1rem
         transform: rotate(90deg)
-        z-index: 6;
+        z-index: 6
         animation: flame-animation 0.2s linear infinite
 </style>
