@@ -1,51 +1,35 @@
 <template>
-  <div class="login row min-vh-100 align-items-center justify-content-center">
-    <form
-      class="col-12 col-md-8 col-lg-6 text-center"
-      @submit.prevent="handleSubmit"
-    >
-      <img class="login__logo my-4" src="/static/images/logo.png" />
-      <div class="form-group">
-        <label class="login__label" for="inputLogin">
-          {{ $t('user_name') }}
-        </label>
-        <input
-          id="inputLogin"
-          class="login__input form-control"
-          type="text"
-          v-model.trim="username"
-          :placeholder="$t('user_name')"
-        />
-      </div>
-      <div class="form-group">
-        <label class="login__label" for="inputPass">
-          {{ $t('password') }}
-        </label>
-        <input
-          id="inputPass"
-          class="login__input form-control"
-          type="password"
-          v-model.trim="password"
-          :placeholder="$t('password')"
-        />
-      </div>
-      <button class="login__btn btn btn-primary px-5" type="submit">
-        {{ $t('login') }}
-      </button>
-    </form>
-  </div>
+  <v-row align="center" justify="center">
+    <v-col cols="12" sm="8" md="4">
+      <v-card class="elevation-12">
+        <v-card-text>
+          <v-form>
+            <v-text-field
+              id="inputLogin"
+              type="text"
+              v-model.trim="username"
+              :placeholder="$t('user_name')"
+            ></v-text-field>
+            <v-text-field
+              id="inputPass"
+              type="password"
+              v-model.trim="password"
+              :placeholder="$t('password')"
+            ></v-text-field>
+          </v-form>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn @click="handleSubmit()">Login</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
   export default {
-    metaInfo() {
-      const { appName } = window.config
-
-      return {
-        title: appName,
-        titleTemplate: null
-      }
-    },
+    layout: 'empty',
     data() {
       return {
         username: '',

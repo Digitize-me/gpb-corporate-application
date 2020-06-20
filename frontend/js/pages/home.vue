@@ -1,18 +1,10 @@
 <template>
-  <example color="#01bf9e" :show-links="true">
-    Welcome to SPA application
-  </example>
+  <h1>HOME</h1>
 </template>
 
 <script>
+  import auth from '@/middleware/auth'
   export default {
-    metaInfo() {
-      const { appName } = window.config
-
-      return {
-        title: appName,
-        titleTemplate: null
-      }
-    }
+    middleware: auth
   }
 </script>
