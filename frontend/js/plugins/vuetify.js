@@ -6,7 +6,7 @@ Vue.use(Vuetify)
 
 const opts = {
   theme: {
-    light: true
+    dark: false
   }
 }
 
