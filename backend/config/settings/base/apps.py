@@ -28,6 +28,7 @@ PROJECT_APPS = [
     "apps.api.offers",
     "apps.api.events",
     "apps.api.voting",
+    "apps.api.reference",
 ]
 
 DEVELOPER_APPS = [

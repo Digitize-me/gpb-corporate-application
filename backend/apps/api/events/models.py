@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
-from reference.models import Tag, Category
+from apps.api.reference.models import Tag, Category
+
 
 # Create your models here.
 
