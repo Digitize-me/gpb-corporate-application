@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Tag(models.Model):
+class TagAbstract(models.Model):
     """
     Модель тегов
     """
@@ -14,11 +14,12 @@ class Tag(models.Model):
         return self.name
 
     class Meta:
+        abstract = True
         verbose_name = "Тег"
         verbose_name_plural = "Теги"
 
 
-class Category(models.Model):
+class CategoryAbstract(models.Model):
     """
     Модель категорий
     """
@@ -29,5 +30,6 @@ class Category(models.Model):
         return self.name
 
     class Meta:
+        abstract = True
         verbose_name = "Категория предложения"
         verbose_name_plural = "Категории предложений"

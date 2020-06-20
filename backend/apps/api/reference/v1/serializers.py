@@ -1,3 +1,5 @@
-from rest_framework import serializers
-
-# Create your serializers here.
+# from rest_framework import serializers
+# from ..models import (
+#     Tag,
+#     Category,
+# )

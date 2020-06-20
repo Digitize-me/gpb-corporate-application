@@ -1,23 +1,23 @@
 from django.urls import path
 from django.conf.urls import include
 from .views import (
-    TagListCreate,
-    TagRetrieveUpdate,
-    CategoryListCreate,
-    CategoryRetrieveUpdate,
+    OfferListCreate,
+    TagOfferListCreate,
+    TagOfferRetrieveUpdate,
+    CategoryOfferListCreate,
+    CategoryOfferRetrieveUpdate,
 )
 
 app_name = "offers"
 
 urlpatterns = [
-    # path("", .as_view()),
-    # path("<int:pk>/", .as_view()),
+    path("", OfferListCreate.as_view()),
     path(
         "tags/",
         include(
             [
-                path("", TagListCreate.as_view()),
-                path("<int:pk>/", TagRetrieveUpdate.as_view()),
+                path("", TagOfferListCreate.as_view()),
+                path("<int:pk>/", TagOfferRetrieveUpdate.as_view()),
             ]
         ),
     ),
@@ -25,8 +25,8 @@ urlpatterns = [
         "categories/",
         include(
             [
-                path("", CategoryListCreate.as_view()),
-                path("<int:pk>/", CategoryRetrieveUpdate.as_view()),
+                path("", CategoryOfferListCreate.as_view()),
+                path("<int:pk>/", CategoryOfferRetrieveUpdate.as_view()),
             ]
         ),
     ),

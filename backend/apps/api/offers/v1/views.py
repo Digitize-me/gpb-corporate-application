@@ -1,45 +1,61 @@
 from rest_framework import generics
-from .serializers import OfferSerializer, TagSerializer, CategorySerializer
-from ..models import Offer, Tag, Category
+from .serializers import (
+    OfferSerializer,
+    TagOfferSerializer,
+    CategoryOfferSerializer,
+)
+from ..models import Offer, TagOffer, CategoryOffer
 
 
-class CategoryListCreate(generics.ListCreateAPIView):
+class OfferListCreate(generics.ListCreateAPIView):
     """
-    Категории
+    Предложения
     """
 
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    queryset = Offer.objects.all()
+    serializer_class = OfferSerializer
 
     def perform_create(self, serializer):
         return serializer.save()
 
 
-class CategoryRetrieveUpdate(generics.RetrieveUpdateAPIView):
+class CategoryOfferListCreate(generics.ListCreateAPIView):
     """
     Категории
     """
 
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-
-class TagListCreate(generics.ListCreateAPIView):
-    """
-    Теги
-    """
-
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
+    queryset = CategoryOffer.objects.all()
+    serializer_class = CategoryOfferSerializer
 
     def perform_create(self, serializer):
         return serializer.save()
 
 
-class TagRetrieveUpdate(generics.RetrieveUpdateAPIView):
+class CategoryOfferRetrieveUpdate(generics.RetrieveUpdateAPIView):
+    """
+    Категории
+    """
+
+    queryset = CategoryOffer.objects.all()
+    serializer_class = CategoryOfferSerializer
+
+
+class TagOfferListCreate(generics.ListCreateAPIView):
     """
     Теги
     """
 
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
+    queryset = TagOffer.objects.all()
+    serializer_class = TagOfferSerializer
+
+    def perform_create(self, serializer):
+        return serializer.save()
+
+
+class TagOfferRetrieveUpdate(generics.RetrieveUpdateAPIView):
+    """
+    Теги
+    """
+
+    queryset = TagOffer.objects.all()
+    serializer_class = TagOfferSerializer

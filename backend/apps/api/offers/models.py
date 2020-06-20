@@ -1,7 +1,33 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
-from apps.api.reference.models import Tag, Category
+from apps.api.reference.models import TagAbstract, CategoryAbstract
+
+
+class TagOffer(TagAbstract):
+    """
+    Модель тегов
+    """
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Тег (предложений)"
+        verbose_name_plural = "Теги (предложений)"
+
+
+class CategoryOffer(CategoryAbstract):
+    """
+    Модель категорий
+    """
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Категория (предложений)"
+        verbose_name_plural = "Категории (предложений)"
 
 
 class Offer(models.Model):
@@ -9,9 +35,6 @@ class Offer(models.Model):
     Модель предложений или идей сотрудников
     """
 
-    is_published = models.BooleanField(
-        default=False, verbose_name=_("Публикация")
-    )
     date_created = models.DateField(
         auto_now_add=True, verbose_name=_("Дата создания")
     )
@@ -23,14 +46,15 @@ class Offer(models.Model):
         null=True,
     )
     category = models.ForeignKey(
-        Category,
+        CategoryOffer,
+        related_name="category",
         verbose_name=_("Категория"),
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
     tags = models.ManyToManyField(
-        Tag, null=True, blank=True, verbose_name=_("Теги")
+        TagOffer, null=True, blank=True, verbose_name=_("Теги")
     )
     idea_short = models.CharField(
         max_length=255, verbose_name=_("Краткое описание (идея проекта)")

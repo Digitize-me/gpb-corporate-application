@@ -1,7 +1,14 @@
-from django.urls import path
+# from django.urls import path
+# from django.conf.urls import include
+# from .views import (
+#     TagListCreate,
+#     TagRetrieveUpdate,
+#     CategoryListCreate,
+#     CategoryRetrieveUpdate,
+# )
 
-app_name = "reference"
+# app_name = "reference"
 
-urlpatterns = [
-    # path("", ReferenceView.as_view(), name="index"),
-]
+# urlpatterns = [
+
+# ]

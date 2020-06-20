@@ -1,6 +1,7 @@
 from rest_framework import views, generics, status
 from rest_framework.response import Response
 from apps.api.offers.models import Offer
+from apps.api.events.models import Event
 
 # from django.http import Http404
 
@@ -29,3 +30,11 @@ class OfferVoting(Voting):
     """
 
     model = Offer
+
+
+class EventVoting(Voting):
+    """
+    Класс голосов за мероприятия
+    """
+
+    model = Event

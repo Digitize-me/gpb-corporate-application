@@ -25,10 +25,10 @@ PROJECT_APPS = [
     "apps.core.main",
     "apps.core.api",
     "apps.api.auth",
+    "apps.api.reference",
     "apps.api.offers",
     "apps.api.events",
     "apps.api.voting",
-    "apps.api.reference",
 ]
 
 DEVELOPER_APPS = [

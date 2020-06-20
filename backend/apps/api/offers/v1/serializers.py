@@ -1,28 +1,24 @@
 from rest_framework import serializers
-from ..models import (
-    Offer,
-    Tag,
-    Category,
-)
+from ..models import Offer, TagOffer, CategoryOffer
 
 
-class CategorySerializer(serializers.ModelSerializer):
+class CategoryOfferSerializer(serializers.ModelSerializer):
     """
     Сериализатор категорий
     """
 
     class Meta:
-        model = Category
+        model = CategoryOffer
         fields = "__all__"
 
 
-class TagSerializer(serializers.ModelSerializer):
+class TagOfferSerializer(serializers.ModelSerializer):
     """
     Сериализатор тегов
     """
 
     class Meta:
-        model = Tag
+        model = TagOffer
         fields = "__all__"
 
 
@@ -30,6 +26,9 @@ class OfferSerializer(serializers.ModelSerializer):
     """
     Сериализатор предложений
     """
+
+    tags = TagOfferSerializer(many=True)
+    category = CategoryOfferSerializer(many=True)
 
     class Meta:
         model = Offer
