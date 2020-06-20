@@ -4,19 +4,6 @@ from django.utils.translation import gettext_lazy as _
 from apps.api.reference.models import TagAbstract, CategoryAbstract
 
 
-class TagOffer(TagAbstract):
-    """
-    Модель тегов
-    """
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "Тег (предложений)"
-        verbose_name_plural = "Теги (предложений)"
-
-
 class CategoryOffer(CategoryAbstract):
     """
     Модель категорий
@@ -53,9 +40,6 @@ class Offer(models.Model):
         blank=True,
         null=True,
     )
-    tags = models.ManyToManyField(
-        TagOffer, null=True, blank=True, verbose_name=_("Теги")
-    )
     idea_short = models.CharField(
         max_length=255, verbose_name=_("Краткое описание (идея проекта)")
     )
@@ -70,3 +54,24 @@ class Offer(models.Model):
     class Meta:
         verbose_name = _("Прдложение")
         verbose_name_plural = _("Прдложения")
+
+
+class TagOffer(TagAbstract):
+    """
+    Модель тегов
+    """
+
+    tags = models.ManyToManyField(
+        Offer,
+        null=True,
+        blank=True,
+        verbose_name=_("Теги"),
+        related_name="offers",
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Тег (предложений)"
+        verbose_name_plural = "Теги (предложений)"

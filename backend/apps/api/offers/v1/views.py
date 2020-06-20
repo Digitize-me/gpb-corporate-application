@@ -19,6 +19,15 @@ class OfferListCreate(generics.ListCreateAPIView):
         return serializer.save()
 
 
+# class OfferRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+#     """
+#     Предложения
+#     """
+
+#     queryset = Offer.objects.all()
+#     serializer_class = OfferSerializer
+
+
 class CategoryOfferListCreate(generics.ListCreateAPIView):
     """
     Категории

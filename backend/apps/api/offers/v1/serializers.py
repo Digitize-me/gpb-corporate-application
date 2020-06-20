@@ -27,9 +27,8 @@ class OfferSerializer(serializers.ModelSerializer):
     Сериализатор предложений
     """
 
-    tags = TagOfferSerializer(many=True)
-    category = CategoryOfferSerializer(many=True)
+    tags = TagOfferSerializer(required=False)
 
     class Meta:
         model = Offer
-        fields = "__all__"
+        fields = ["tags"]
