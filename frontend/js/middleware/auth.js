@@ -1,7 +1,7 @@
 import store from '@/store'
 
 export default (to, from, next) => {
-  if (to.meta.isPublic) {
+  if (to.name === 'login') {
     next()
     return
   }
